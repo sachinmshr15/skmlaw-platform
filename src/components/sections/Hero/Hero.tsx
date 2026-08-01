@@ -2,6 +2,7 @@ import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import HeroImage from "./HeroImage";
 import HeroGlow from "./components/HeroGlow";
+import { siteConfig } from "@/config/site";
 
 export default function Hero() {
   return (
@@ -19,15 +20,11 @@ export default function Hero() {
             Advocate • Tax Consultant • GST Consultant
           </span>
 
-          <h1 className="mt-8 max-w-3xl text-5xl font-bold leading-tight lg:text-7xl">
+  <h1 className="font-heading mt-8 text-5xl font-bold leading-tight lg:text-7xl">
 
-            Strategic Legal
+  {siteConfig.tagline}
 
-            <span className="block text-yellow-400">
-              &amp; Tax Advisory
-            </span>
-
-          </h1>
+</h1>
 
           <h2 className="mt-6 text-2xl text-gray-300">
 
@@ -35,14 +32,11 @@ export default function Hero() {
 
           </h2>
 
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-gray-400">
+<p className="mt-8 max-w-xl text-lg leading-8 text-gray-400">
 
-            Delivering practical legal, taxation,
-            GST and business advisory services with
-            integrity, precision and a client-first
-            approach.
+  {siteConfig.description}
 
-          </p>
+</p>
 
           {/* Services */}
 

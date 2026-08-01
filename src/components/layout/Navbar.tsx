@@ -2,14 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-
-const menuItems = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Knowledge Centre", href: "#knowledge" },
-  { name: "Contact", href: "#contact" },
-];
+import { navigation } from "@/config/navigation";
 
 export default function Navbar() {
   return (
@@ -37,9 +30,9 @@ export default function Navbar() {
 
           <div className="hidden items-center gap-8 lg:flex">
 
-            {menuItems.map((item) => (
+            {navigation.map((item) => (
               <Link
-                key={item.name}
+                key={item.href}
                 href={item.href}
                 className="
 relative
@@ -60,7 +53,7 @@ after:duration-300
 hover:after:w-full
 "
               >
-                {item.name}
+                {item.title}
               </Link>
             ))}
 

@@ -23,7 +23,24 @@ export default function Button({
 
             href={href}
 
-            className="rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-600 px-7 py-4 font-semibold text-black shadow-lg shadow-yellow-500/30 transition-all duration-300 hover:scale-105"
+            className="
+inline-flex
+items-center
+justify-center
+rounded-2xl
+bg-gradient-to-r
+from-yellow-400
+to-yellow-500
+px-8
+py-4
+font-semibold
+text-black
+shadow-[0_15px_40px_rgba(234,179,8,.35)]
+transition-all
+duration-300
+hover:-translate-y-1
+hover:shadow-[0_20px_60px_rgba(234,179,8,.45)]
+"
 
         >
 

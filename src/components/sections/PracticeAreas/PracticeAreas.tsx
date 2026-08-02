@@ -1,131 +1,93 @@
-import Link from "next/link";
-import {
-  Calculator,
-  Landmark,
-  Scale,
-  Building2,
-  BriefcaseBusiness,
-} from "lucide-react";
+import Container from "@/components/ui/Container";
 
-const services = [
-  {
-    icon: Calculator,
-    title: "Income Tax",
-    slug: "income-tax",
-    desc: "ITR Filing, Tax Audit, Income Tax Notices, Assessments and Compliance Services.",
-  },
-  {
-    icon: Landmark,
-    title: "GST Services",
-    slug: "gst",
-    desc: "GST Registration, Return Filing, Audit, Refunds and End-to-End GST Compliance.",
-  },
-  {
-    icon: Scale,
-    title: "Appeals & Litigation",
-    slug: "appeals",
-    desc: "Representation before Income Tax, GST Authorities and Appellate Forums.",
-  },
-  {
-    icon: Building2,
-    title: "Business Registration",
-    slug: "business-registration",
-    desc: "Proprietorship, Partnership, LLP, Company Incorporation and MSME Registration.",
-  },
-  {
-    icon: BriefcaseBusiness,
-    title: "Tax Planning",
-    slug: "tax-planning",
-    desc: "Strategic Tax Planning, Capital Gain Planning and Business Structuring.",
-  },
-  {
-    icon: BriefcaseBusiness,
-    title: "Business Advisory",
-    slug: "business-advisory",
-    desc: "Business Structuring, Regulatory Compliance and Professional Advisory Services.",
-  },
-];
+import PracticeGrid from "./PracticeGrid";
+import PracticeCTA from "./PracticeCTA";
 
 export default function PracticeAreas() {
   return (
     <section
       id="services"
-      className="bg-[#07111d] py-24"
+      className="relative overflow-hidden bg-[#081321] py-28 lg:py-32"
     >
-      <div className="mx-auto max-w-7xl px-6">
+      {/* Background Effects */}
+
+      <div className="pointer-events-none absolute inset-0">
+
+        <div
+          className="
+            absolute
+            -left-40
+            top-20
+            h-[500px]
+            w-[500px]
+            rounded-full
+            bg-yellow-500/10
+            blur-[170px]
+          "
+        />
+
+        <div
+          className="
+            absolute
+            right-0
+            bottom-0
+            h-[420px]
+            w-[420px]
+            rounded-full
+            bg-sky-500/5
+            blur-[150px]
+          "
+        />
+
+      </div>
+
+      <Container className="relative z-10">
 
         {/* Heading */}
 
-        <div className="text-center">
+        <div className="mx-auto max-w-3xl text-center">
 
-          <span className="text-sm font-semibold uppercase tracking-[6px] text-yellow-400">
+          <span
+            className="
+              inline-flex
+              rounded-full
+              border
+              border-yellow-500/20
+              bg-yellow-500/10
+              px-6
+              py-2
+              text-xs
+              font-semibold
+              uppercase
+              tracking-[3px]
+              text-yellow-400
+            "
+          >
             Practice Areas
           </span>
 
-          <h2 className="mt-4 text-5xl font-bold text-white">
-            Professional Legal & Tax Services
+          <h2 className="mt-8 font-heading text-5xl font-bold text-white lg:text-6xl">
+            Professional Legal
+            <span className="text-yellow-400"> &amp; Tax Services</span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-400">
-            Comprehensive legal, taxation and business advisory
-            services designed for individuals, professionals,
-            startups and enterprises.
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-9 text-gray-400">
+            Comprehensive legal, taxation and business advisory services
+            tailored for individuals, professionals, startups and
+            enterprises across India.
           </p>
 
         </div>
 
-        {/* Cards */}
+        {/* Grid */}
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <PracticeGrid />
 
-          {services.map((service) => {
-            const Icon = service.icon;
+        {/* Bottom CTA */}
 
-            return (
-              <div
-                key={service.slug}
-                className="group rounded-3xl border border-yellow-500/10 bg-[#0d1b2a] p-8 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-400 hover:shadow-2xl hover:shadow-yellow-500/10"
-              >
+        <PracticeCTA />
 
-                {/* Icon */}
-
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-yellow-500/10 transition-all duration-300 group-hover:bg-yellow-400">
-
-                  <Icon
-                    size={34}
-                    className="text-yellow-400 transition-all duration-300 group-hover:text-black"
-                  />
-
-                </div>
-
-                {/* Title */}
-
-                <h3 className="mt-8 text-2xl font-bold text-white">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-
-                <p className="mt-5 leading-8 text-gray-400">
-                  {service.desc}
-                </p>
-
-                {/* CTA */}
-
-                <Link
-                  href={`/services/${service.slug}`}
-                  className="mt-8 inline-flex items-center font-semibold text-yellow-400 transition-all duration-300 group-hover:translate-x-2 group-hover:text-yellow-300"
-                >
-                  Learn More →
-                </Link>
-
-              </div>
-            );
-          })}
-
-        </div>
-
-      </div>
+      </Container>
     </section>
   );
 }

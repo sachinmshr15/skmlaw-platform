@@ -1,65 +1,87 @@
-import Link from "next/link";
-import Image from "next/image";
+import Container from "@/components/ui/Container";
+
+import AboutImage from "./AboutImage";
+import AboutContent from "./AboutContent";
 
 export default function About() {
   return (
-    <section className="bg-[#081321] py-24 text-white">
-      <div className="mx-auto max-w-7xl px-6">
+    <section
+      id="about"
+      className="relative overflow-hidden bg-[#07111d] py-28 lg:py-36"
+    >
+      {/* ================= Background Effects ================= */}
 
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+      <div className="pointer-events-none absolute inset-0">
 
-          <div className="flex justify-center">
-            <Image
-              src="/images/profile/sachin-about.png"
-              alt="Advocate Sachin Kumar Mishra"
-              width={420}
-              height={520}
-              className="rounded-3xl border border-yellow-500/20"
-            />
-          </div>
+        {/* Left Gold Glow */}
 
-          <div>
+        <div
+          className="
+            absolute
+            -left-44
+            top-20
+            h-[520px]
+            w-[520px]
+            rounded-full
+            bg-yellow-500/10
+            blur-[170px]
+          "
+        />
 
-            <span className="rounded-full border border-yellow-500/30 bg-yellow-500/10 px-4 py-2 text-sm text-yellow-400">
-              Founder • SKM Laws & Associates
-            </span>
+        {/* Right Blue Glow */}
 
-            <h2 className="mt-6 text-5xl font-bold">
-              Advocate
-              <span className="block text-yellow-400">
-                Sachin Kumar Mishra
-              </span>
-            </h2>
+        <div
+          className="
+            absolute
+            right-0
+            bottom-0
+            h-[420px]
+            w-[420px]
+            rounded-full
+            bg-sky-500/5
+            blur-[150px]
+          "
+        />
 
-            <p className="mt-8 text-lg leading-8 text-gray-300">
-              Professional legal, taxation and business advisory
-              services with a practical, transparent and client-focused
-              approach for individuals, professionals and businesses.
-            </p>
+        {/* Center Soft Light */}
 
-            <div className="mt-10 flex gap-4">
+        <div
+          className="
+            absolute
+            left-1/2
+            top-1/2
+            h-[260px]
+            w-[260px]
+            -translate-x-1/2
+            -translate-y-1/2
+            rounded-full
+            bg-white/5
+            blur-[130px]
+          "
+        />
 
-              <Link
-                href="/about"
-                className="rounded-xl bg-yellow-400 px-8 py-4 font-semibold text-black"
-              >
-                View Full Profile
-              </Link>
+      </div>
 
-              <Link
-                href="tel:+917007756899"
-                className="rounded-xl border border-yellow-500 px-8 py-4 font-semibold text-yellow-400"
-              >
-                Book Consultation
-              </Link>
+      {/* ================= Content ================= */}
 
-            </div>
+      <Container className="relative z-10">
 
-          </div>
+        <div
+          className="
+            grid
+            items-center
+            gap-24
+            lg:grid-cols-[0.95fr_1.05fr]
+          "
+        >
+
+          <AboutImage />
+
+          <AboutContent />
 
         </div>
 
-      </div>
+      </Container>
     </section>
   );
 }

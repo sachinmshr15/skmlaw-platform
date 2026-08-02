@@ -30,7 +30,7 @@ export default function Navbar() {
 
           <div className="hidden items-center gap-8 lg:flex">
 
-            {navigation.map((item) => (
+            {navigation.main.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -53,7 +53,7 @@ after:duration-300
 hover:after:w-full
 "
               >
-                {item.title}
+                {item.label}
               </Link>
             ))}
 

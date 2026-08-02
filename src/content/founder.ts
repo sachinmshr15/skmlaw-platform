@@ -1,28 +1,26 @@
 export const founder = {
-  name: "Advocate Sachin Kumar Mishra",
+  name: "Adv. Sachin Kumar Mishra",
 
-  designation: "Founder",
+  designation: "Advocate • Tax Consultant • GST Consultant",
 
-  firm: "SKM Laws & Associates",
+  experience: "10+",
 
-  bio:
-    "Professional legal, taxation and business advisory services with a practical and client-focused approach.",
+  experienceLabel: "Years Experience",
 
-  qualifications: [
-    "LL.B.",
-    "B.A. (Economics)",
-  ],
+  tagline:
+    "Delivering strategic legal, taxation and business advisory solutions with integrity, precision and practical expertise.",
 
-  practiceAreas: [
-    "Income Tax",
+  shortBio:
+    "SKM Laws & Associates provides professional legal, Income Tax, GST and business advisory services to individuals, professionals, startups and enterprises across India. Our approach combines legal expertise with practical commercial solutions to help clients stay compliant and grow confidently.",
 
-    "GST",
-
-    "Appeals",
-
+  highlights: [
+    "Income Tax Advisory",
+    "GST Compliance",
+    "Appeals & Litigation",
+    "Business Registration",
+    "Tax Planning",
     "Business Advisory",
   ],
 
-  consultation:
-    "PAN India",
+  cta: "Know More About Founder",
 };

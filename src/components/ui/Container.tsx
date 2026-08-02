@@ -19,7 +19,7 @@ export default function Container({
     return(
 
         <div
-            className={`mx-auto max-w-7xl px-6 ${className}`}
+            className={`mx-auto max-w-[1450px] px-6 ${className}`}
         >
 
             {children}

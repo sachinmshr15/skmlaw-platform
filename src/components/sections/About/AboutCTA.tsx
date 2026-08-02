@@ -1,101 +1,69 @@
 import Link from "next/link";
-import {
-  Phone,
-  MessageCircle,
-  ArrowRight,
-} from "lucide-react";
-
-import Container from "@/components/ui/Container";
+import { ArrowRight } from "lucide-react";
+import { founder } from "@/content/founder";
 
 export default function AboutCTA() {
   return (
-    <section className="bg-[#07111d] py-24 text-white">
-      <Container>
+    <div className="mt-14 flex flex-col gap-5 sm:flex-row sm:items-center">
 
-        <div className="overflow-hidden rounded-[36px] border border-yellow-500/20 bg-gradient-to-br from-[#0d1b2a] via-[#10243a] to-[#081321] p-10 shadow-2xl lg:p-16">
+      {/* Primary */}
 
-          <div className="mx-auto max-w-4xl text-center">
+      <Link
+        href="/about"
+        className="
+          group
+          inline-flex
+          items-center
+          justify-center
+          gap-3
+          rounded-2xl
+          bg-gradient-to-r
+          from-yellow-400
+          via-yellow-500
+          to-yellow-600
+          px-8
+          py-4
+          font-semibold
+          text-black
+          shadow-[0_18px_45px_rgba(234,179,8,.28)]
+          transition-all
+          duration-300
+          hover:-translate-y-1
+          hover:shadow-[0_25px_60px_rgba(234,179,8,.4)]
+        "
+      >
+        {founder.cta}
 
-            <span className="rounded-full border border-yellow-500/30 bg-yellow-500/10 px-5 py-2 text-sm uppercase tracking-[0.35em] text-yellow-400">
-              Consultation
-            </span>
+        <ArrowRight
+          size={18}
+          className="transition-transform duration-300 group-hover:translate-x-1"
+        />
+      </Link>
 
-            <h2 className="mt-8 font-heading text-5xl font-bold leading-tight lg:text-6xl">
+      {/* Secondary */}
 
-              Need Professional
-              <span className="block text-yellow-400">
-                Legal & Tax Guidance?
-              </span>
+      <Link
+        href="/contact"
+        className="
+          inline-flex
+          items-center
+          justify-center
+          rounded-2xl
+          border
+          border-yellow-500/30
+          px-8
+          py-4
+          font-semibold
+          text-yellow-400
+          transition-all
+          duration-300
+          hover:bg-yellow-500/10
+          hover:border-yellow-400
+        "
+      >
+        Schedule Consultation
+      </Link>
 
-            </h2>
-
-            <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-gray-300">
-
-              Whether you need assistance with Income Tax,
-              GST, business registrations, appeals or legal
-              advisory, SKM Laws & Associates is committed
-              to providing practical and professional guidance.
-
-            </p>
-
-            {/* Services */}
-
-            <div className="mt-10 flex flex-wrap justify-center gap-3">
-
-              {[
-                "Income Tax",
-                "GST",
-                "Appeals",
-                "Business Advisory",
-                "Tax Planning",
-                "Registrations",
-              ].map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-yellow-500/20 bg-[#081321] px-5 py-2 text-sm text-yellow-300"
-                >
-                  {item}
-                </span>
-              ))}
-
-            </div>
-
-            {/* Buttons */}
-
-            <div className="mt-12 flex flex-wrap justify-center gap-5">
-
-              <Link
-                href="tel:+917007756899"
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-600 px-8 py-4 font-semibold text-black transition hover:scale-105"
-              >
-                <Phone size={20} />
-                Schedule Consultation
-              </Link>
-
-              <Link
-                href="https://wa.me/917007756899"
-                target="_blank"
-                className="inline-flex items-center gap-2 rounded-xl border border-yellow-500 px-8 py-4 font-semibold text-yellow-400 transition hover:bg-yellow-500 hover:text-black"
-              >
-                <MessageCircle size={20} />
-                WhatsApp
-              </Link>
-
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-8 py-4 font-semibold text-white transition hover:border-yellow-500"
-              >
-                Contact Page
-                <ArrowRight size={18} />
-              </Link>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </Container>
-    </section>
+    </div>
   );
 }

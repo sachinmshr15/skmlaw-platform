@@ -1,18 +1,20 @@
 export const siteConfig = {
   name: "SKM Laws & Associates",
 
-  shortName: "SKM Laws",
-
   tagline: "Trusted Legal & Tax Advisory Services",
+
+  subtitle: "For Individuals, Businesses & Startups",
 
   description:
     "Professional legal, taxation and regulatory advisory services.",
 
-  url: "https://skmlaws.in",
+  badge: "Advocate • Tax Consultant • GST Consultant",
 
-  locale: "en-IN",
+  phone: "+91 7007756899",
 
-  country: "India",
+  whatsapp: "917007756899",
 
-  themeColor: "#081321",
+  consultationText: "Schedule Consultation",
+
+  whatsappText: "WhatsApp",
 };

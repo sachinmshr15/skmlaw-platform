@@ -2,35 +2,40 @@ import Image from "next/image";
 
 export default function HeroImage() {
   return (
-    <div className="relative flex justify-center">
+    <div className="relative flex h-[860px] w-full items-end justify-end">
 
-      {/* Golden Glow */}
+      {/* Background Glow */}
+      <div className="absolute bottom-10 right-10 h-[620px] w-[620px] rounded-full bg-yellow-500/15 blur-[140px]" />
 
-      <div className="absolute inset-0 rounded-full bg-yellow-400/10 blur-[120px]" />
+      {/* Soft Gold Ring */}
+      <div className="absolute bottom-14 right-16 h-[560px] w-[560px] rounded-full border border-yellow-500/10" />
 
-      {/* Golden Ring */}
-
-      <div className="absolute top-8 h-[540px] w-[540px] rounded-full border border-yellow-400/20" />
-
-      <div className="absolute top-14 h-[500px] w-[500px] rounded-full border border-yellow-400/10" />
-
-      {/* Floating Dot */}
-
-      <div className="absolute -right-5 top-24 h-5 w-5 rounded-full bg-yellow-400 shadow-lg shadow-yellow-400/40" />
-
-      <div className="absolute bottom-24 -left-5 h-4 w-4 rounded-full bg-yellow-400" />
-
-      {/* Image */}
-
+      {/* Founder Image */}
       <Image
         src="/images/profile/sachin-hero.png"
         alt="Advocate Sachin Kumar Mishra"
-        width={520}
-        height={650}
+        width={760}
+        height={920}
         priority
-        className="relative z-10 rounded-[30px] border border-yellow-500/20 shadow-[0_25px_80px_rgba(212,175,55,.18)]"
+        className="
+          relative
+          z-20
+          h-auto
+          w-auto
+          max-h-[900px]
+          object-contain
+          object-bottom
+          drop-shadow-[0_45px_90px_rgba(0,0,0,.55)]
+          transition-all
+          duration-500
+          hover:scale-[1.02]
+        "
       />
 
+      {/* Decorative Accent */}
+      <div className="absolute top-28 right-6 h-4 w-4 rounded-full bg-yellow-400 shadow-[0_0_30px_rgba(250,204,21,.9)]" />
+
+      <div className="absolute bottom-32 left-8 h-3 w-3 rounded-full bg-yellow-400/70" />
     </div>
   );
 }

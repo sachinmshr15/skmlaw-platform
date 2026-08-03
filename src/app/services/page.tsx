@@ -1,11 +1,43 @@
-import PageHero from "@/components/layout/PageHero/PageHero";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer/Footer";
+
+import PageHero from "@/components/shared/PageHero";
+
+import { ServicesSection } from "@/components/sections/Services";
+
+import ContactCTA from "@/components/sections/ContactCTA/ContactCTA";
 
 export default function ServicesPage() {
   return (
-    <PageHero
-      eyebrow="Services"
-      title="Professional Legal & Tax Services"
-      description="Explore our Income Tax, GST, litigation, business advisory and compliance services."
-    />
+    <>
+      <Navbar />
+
+      <main>
+        <PageHero
+          badge="Professional Services"
+          title="Legal & Tax"
+          highlight="Solutions"
+          description="Comprehensive legal, taxation and business advisory services for individuals, professionals, startups and enterprises across India."
+          breadcrumbs={[
+            {
+              label: "Home",
+              href: "/",
+            },
+            {
+              label: "Services",
+            },
+          ]}
+        />
+
+        <ServicesSection
+          featuredOnly={false}
+          showButton={false}
+        />
+
+        <ContactCTA />
+      </main>
+
+      <Footer />
+    </>
   );
 }

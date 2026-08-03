@@ -3,7 +3,7 @@ import Hero from "@/components/sections/Hero/Hero";
 import ServiceRibbon from "@/components/sections/ServiceRibbon/ServiceRibbon";
 import TrustBar from "@/components/sections/TrustBar/TrustBar";
 import About from "@/components/sections/About/About";
-import PracticeAreas from "@/components/sections/PracticeAreas/PracticeAreas";
+import { ServicesSection } from "@/components/sections/Services";
 import WhyChoose from "@/components/sections/WhyChoose/WhyChoose";
 import KnowledgeCentre from "@/components/sections/KnowledgeCentre/KnowledgeCentre";
 import ContactCTA from "@/components/sections/ContactCTA/ContactCTA";
@@ -22,7 +22,7 @@ export default function Home() {
 
       <About />
 
-      <PracticeAreas />
+      <ServicesSection featuredOnly />
 
       <WhyChoose />
 

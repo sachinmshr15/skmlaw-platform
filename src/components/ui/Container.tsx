@@ -1,31 +1,31 @@
 import { ReactNode } from "react";
+import clsx from "clsx";
 
-type Props = {
-
-    children:ReactNode;
-
-    className?:string;
-
+type ContainerProps = {
+  children: ReactNode;
+  className?: string;
 };
 
 export default function Container({
-
-    children,
-
-    className="",
-
-}:Props){
-
-    return(
-
-        <div
-            className={`mx-auto max-w-[1450px] px-6 ${className}`}
-        >
-
-            {children}
-
-        </div>
-
-    );
-
+  children,
+  className,
+}: ContainerProps) {
+  return (
+    <div
+      className={clsx(
+        `
+        mx-auto
+        w-full
+        max-w-[1280px]
+        px-6
+        sm:px-8
+        lg:px-10
+        xl:px-12
+        `,
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
 }

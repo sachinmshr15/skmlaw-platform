@@ -18,23 +18,39 @@ export default function PremiumCard({
         `
         relative
         overflow-hidden
-        rounded-[28px]
+        rounded-3xl
         border
         border-yellow-500/10
         bg-[#0B1625]
-        p-8
+        p-7
         transition-all
-        duration-500
+        duration-300
         `,
         hover &&
           `
-          hover:-translate-y-2
-          hover:border-yellow-500/30
-          hover:shadow-[0_30px_70px_rgba(212,175,55,.15)]
+          hover:-translate-y-1
+          hover:border-yellow-500/25
+          hover:shadow-[0_18px_45px_rgba(212,175,55,.12)]
         `,
         className
       )}
     >
+      {/* Top Glow */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-x-0
+          top-0
+          h-px
+          bg-gradient-to-r
+          from-transparent
+          via-yellow-400/40
+          to-transparent
+        "
+      />
+
       {children}
     </div>
   );

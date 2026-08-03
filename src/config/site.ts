@@ -1,5 +1,7 @@
 export const siteConfig = {
-  name: "SKM Laws & Associates",
+  /* Brand */
+
+  name: "SKM Laws And Associates",
 
   tagline: "Trusted Legal & Tax Advisory Services",
 
@@ -10,11 +12,9 @@ export const siteConfig = {
 
   badge: "Advocate • Tax Consultant • GST Consultant",
 
-  phone: "+91 7007756899",
-
-  whatsapp: "917007756899",
+  /* CTA Text */
 
   consultationText: "Schedule Consultation",
 
   whatsappText: "WhatsApp",
-};
+} as const;

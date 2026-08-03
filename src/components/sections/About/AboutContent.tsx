@@ -1,3 +1,5 @@
+import SectionHeading from "@/components/ui/SectionHeading";
+
 import { founder } from "@/content/founder";
 
 import AboutHighlights from "./AboutHighlights";
@@ -7,53 +9,17 @@ export default function AboutContent() {
   return (
     <div className="relative z-20 max-w-2xl">
 
-      {/* Badge */}
-
-      <span
-        className="
-          inline-flex
-          items-center
-          rounded-full
-          border
-          border-yellow-500/20
-          bg-yellow-500/10
-          px-6
-          py-3
-          text-xs
-          font-semibold
-          uppercase
-          tracking-[3px]
-          text-yellow-400
-          backdrop-blur-md
-        "
-      >
-        Meet Your Legal Advisor
-      </span>
-
-      {/* Heading */}
-
-      <h2
-        className="
-          font-heading
-          mt-8
-          text-5xl
-          font-bold
-          leading-[1.05]
-          tracking-[-2px]
-          text-white
-          lg:text-6xl
-        "
-      >
-        About{" "}
-
-        <span className="bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent">
-          SKM Laws
-        </span>
-      </h2>
+      <SectionHeading
+        badge="Meet Your Legal Advisor"
+        title="About"
+        highlight="SKM Laws"
+        description={founder.shortBio}
+        align="left"
+      />
 
       {/* Founder Name */}
 
-      <h3 className="mt-8 text-3xl font-semibold text-white">
+      <h3 className="mt-10 text-3xl font-semibold text-white">
         {founder.name}
       </h3>
 
@@ -71,12 +37,6 @@ export default function AboutContent() {
 
       <p className="mt-8 text-xl font-light leading-9 text-gray-300">
         {founder.tagline}
-      </p>
-
-      {/* Biography */}
-
-      <p className="mt-8 text-lg leading-9 text-gray-400">
-        {founder.shortBio}
       </p>
 
       {/* Highlights */}

@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Container from "@/components/ui/Container";
+import { contactConfig } from "@/config/contact";
+import { siteConfig } from "@/config/site";
 
 export default function Footer() {
   return (
@@ -15,19 +17,17 @@ export default function Footer() {
 
           <div>
 
-<Image
-  src="/images/logo/skm-logo.png"
-  alt="SKM Laws"
-  width={180}
-  height={60}
-  className="w-[180px] h-auto object-contain"
-/>
+            <Image
+              src="/images/logo/skm-logo.png"
+              alt={siteConfig.name}
+              width={180}
+              height={60}
+              className="h-auto w-[180px] object-contain"
+            />
+
             <p className="mt-6 leading-8 text-gray-400">
 
-              Professional Legal,
-              Income Tax, GST and
-              Business Advisory
-              Services.
+              {siteConfig.description}
 
             </p>
 
@@ -61,7 +61,7 @@ export default function Footer() {
 
           </div>
 
-          {/* Services */}
+          {/* Practice Areas */}
 
           <div>
 
@@ -101,19 +101,20 @@ export default function Footer() {
 
             <p className="mb-3">
 
-              📞 +91 7007756899
+              📞 {contactConfig.phoneDisplay}
 
             </p>
 
             <p className="mb-3">
 
-              ✉ advsachinmishramkh@gmail.com
+              ✉ {contactConfig.email}
 
             </p>
 
             <p>
 
-              📍 Sitapur, Uttar Pradesh
+              📍 {contactConfig.office.city}, {contactConfig.office.district},{" "}
+              {contactConfig.office.state}
 
             </p>
 
@@ -127,8 +128,7 @@ export default function Footer() {
 
             <p>
 
-              © 2026 SKM Laws & Associates.
-              All Rights Reserved.
+              © 2026 {siteConfig.name}. All Rights Reserved.
 
             </p>
 

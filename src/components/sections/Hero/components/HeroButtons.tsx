@@ -1,27 +1,29 @@
 import Button from "@/components/ui/Button";
-import { siteConfig } from "@/config/site";
 import { ArrowRight, MessageCircle } from "lucide-react";
+
+import { contactConfig } from "@/config/contact";
+import { siteConfig } from "@/config/site";
 
 export default function HeroButtons() {
   return (
     <div className="mt-14 flex flex-wrap gap-5">
 
-      <Button href={`tel:${siteConfig.phone}`}>
+      {/* Primary CTA */}
 
+      <Button href={contactConfig.social.call}>
         <span className="flex items-center gap-3">
-
           📅
 
           {siteConfig.consultationText}
 
           <ArrowRight size={18} />
-
         </span>
-
       </Button>
 
+      {/* WhatsApp */}
+
       <a
-        href={`https://wa.me/${siteConfig.whatsapp}`}
+        href={contactConfig.social.whatsapp}
         target="_blank"
         rel="noopener noreferrer"
         className="
@@ -44,11 +46,9 @@ export default function HeroButtons() {
           hover:bg-yellow-500/10
         "
       >
-
         <MessageCircle size={20} />
 
         WhatsApp
-
       </a>
 
     </div>

@@ -12,17 +12,16 @@ export const contactConfig = {
     district: "Sitapur",
     state: "Uttar Pradesh",
     country: "India",
-    maps: "",
   },
 
   consultation: {
     mode: "Online & Offline",
-    hours: "Monday – Saturday | 10:00 AM – 7:00 PM",
+    hours: "Mon - Sat | 10:00 AM - 7:00 PM",
   },
 
   social: {
-    call: "tel:+917007756899",
     whatsapp: "https://wa.me/917007756899",
+    call: "tel:+917007756899",
     email: "mailto:advsachinmishramkh@gmail.com",
   },
 } as const;

@@ -1,47 +1,92 @@
-type Props={
+import PremiumBadge from "@/components/ui/PremiumBadge";
 
-    eyebrow:string;
+type SectionHeadingProps = {
+  badge?: string;
+  title: string;
+  highlight?: string;
+  description?: string;
 
-    title:string;
+  align?: "left" | "center";
 
-    description:string;
+  headingLevel?: "h1" | "h2";
 
+  size?: "default" | "large";
+
+  descriptionWidth?: "md" | "lg" | "xl";
 };
 
 export default function SectionHeading({
+  badge,
+  title,
+  highlight,
+  description,
+  align = "center",
+  headingLevel = "h2",
+  size = "default",
+  descriptionWidth = "lg",
+}: SectionHeadingProps) {
+  const Heading = headingLevel;
 
-    eyebrow,
+  const wrapperClass =
+    align === "center"
+      ? "mx-auto max-w-3xl text-center"
+      : "max-w-3xl";
 
-    title,
+  const titleClass =
+    size === "large"
+      ? "text-5xl lg:text-7xl"
+      : "text-5xl lg:text-6xl";
 
-    description,
+  const descriptionClass = {
+    md: "max-w-xl",
+    lg: "max-w-2xl",
+    xl: "max-w-3xl",
+  }[descriptionWidth];
 
-}:Props){
+  return (
+    <div className={wrapperClass}>
 
-    return(
+      {badge && (
+        <PremiumBadge>
+          {badge}
+        </PremiumBadge>
+      )}
 
-        <div className="mx-auto max-w-3xl text-center">
+      <Heading
+        className={`
+          mt-8
+          font-heading
+          font-bold
+          leading-[1.05]
+          tracking-[-0.03em]
+          text-white
+          ${titleClass}
+        `}
+      >
+        {title}
 
-            <span
-                className="uppercase tracking-[5px] text-yellow-400 text-sm font-semibold"
-            >
-                {eyebrow}
-            </span>
+        {highlight && (
+          <span className="block bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent">
+            {highlight}
+          </span>
+        )}
+      </Heading>
 
-            <h2
-                className="mt-4 text-5xl font-bold text-white"
-            >
-                {title}
-            </h2>
+      {description && (
+        <p
+          className={`
+            mt-8
+            text-lg
+            leading-9
+            text-gray-400
+            ${descriptionClass}
+            ${align === "center" ? "mx-auto" : ""}
+          `}
+        >
+          {description}
+        </p>
+      )}
 
-            <p
-                className="mt-6 leading-8 text-gray-400"
-            >
-                {description}
-            </p>
-
-        </div>
-
-    );
-
+    </div>
+  );
 }

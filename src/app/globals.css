@@ -1,87 +1,188 @@
 @import "tailwindcss";
 
+/* ==========================================================
+   SKM LAWS DESIGN SYSTEM v1
+========================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+  /* Background */
+
+  --background: #081321;
+  --foreground: #ffffff;
+
+  /* Brand */
+
+  --color-primary: #facc15;
+  --color-primary-dark: #d4af37;
+  --color-primary-light: #fde68a;
+
+  /* Surface */
+
+  --surface-1: #050d18;
+  --surface-2: #081321;
+  --surface-3: #0b1625;
+  --surface-4: #102033;
+
+  /* Text */
+
+  --text-primary: #ffffff;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+
+  /* Border */
+
+  --border-primary: rgba(250, 204, 21, 0.20);
+  --border-secondary: rgba(250, 204, 21, 0.10);
+
+  /* Radius */
+
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  /* Shadow */
+
+  --shadow-soft:
+    0 15px 40px rgba(0, 0, 0, 0.30);
+
+  --shadow-luxury:
+    0 25px 70px rgba(0, 0, 0, 0.45);
+
+  /* Blur */
+
+  --blur-glow: 160px;
+
+  /* Typography */
+
+  --font-heading: "Playfair Display", serif;
+
 }
 
 @theme inline {
+
   --color-background: var(--background);
+
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
+
   --font-mono: var(--font-geist-mono);
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ==========================================================
+   BASE
+========================================================== */
+
+html {
+
+  scroll-behavior: smooth;
+
+  -webkit-font-smoothing: antialiased;
+
+  text-rendering: optimizeLegibility;
+
 }
 
 body {
+
   background: var(--background);
+
   color: var(--foreground);
+
   font-family: Arial, Helvetica, sans-serif;
-}
-/* ===========================
-   PREMIUM TYPOGRAPHY SYSTEM
-=========================== */
-
-:root{
-
-    --font-heading:"Playfair Display",serif;
 
 }
 
-/* Headings */
+/* ==========================================================
+   TYPOGRAPHY
+========================================================== */
 
 h1,
 h2,
 h3,
 h4,
 h5,
-h6{
+h6 {
 
-    font-family:var(--font-heading);
+  font-family: var(--font-heading);
 
-    letter-spacing:-0.02em;
-
-}
-
-/* Paragraph */
-
-p{
-
-    line-height:1.8;
+  letter-spacing: -0.02em;
 
 }
 
-/* Smooth Rendering */
+p {
 
-html{
-
-    scroll-behavior:smooth;
-
-    -webkit-font-smoothing:antialiased;
-
-    text-rendering:optimizeLegibility;
+  line-height: 1.8;
 
 }
+
+/* ==========================================================
+   SELECTION
+========================================================== */
+
+::selection {
+
+  background: var(--color-primary);
+
+  color: #000;
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar {
+
+  width: 10px;
+
+}
+
+::-webkit-scrollbar-track {
+
+  background: var(--surface-1);
+
+}
+
+::-webkit-scrollbar-thumb {
+
+  background: rgba(250, 204, 21, 0.35);
+
+  border-radius: 999px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+  background: rgba(250, 204, 21, 0.60);
+
+}
+
+/* ==========================================================
+   MARQUEE
+========================================================== */
+
 @keyframes marquee {
 
-    0%{
-        transform:translateX(100%);
-    }
+  0% {
 
-    100%{
-        transform:translateX(-100%);
-    }
+    transform: translateX(100%);
+
+  }
+
+  100% {
+
+    transform: translateX(-100%);
+
+  }
 
 }
 
-.animate-marquee{
+.animate-marquee {
 
-    animation:marquee 28s linear infinite;
+  animation: marquee 28s linear infinite;
 
 }

@@ -15,14 +15,14 @@ export default function Navbar() {
 
 <Link href="/" className="flex items-center gap-4">
 
-  <Image
-    src="/images/logo/skm-logo.png"
-    alt="SKM Laws"
-    width={180}
-    height={50}
-    priority
-    className="h-12 w-auto object-contain transition duration-300 hover:scale-105"
-  />
+<Image
+  src="/images/logo/skm-logo.png"
+  alt="SKM Laws"
+  width={180}
+  height={60}
+  priority
+  className="w-[180px] h-auto object-contain transition duration-300 hover:scale-105"
+/>
 
 </Link>
 

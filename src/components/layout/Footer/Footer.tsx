@@ -15,13 +15,13 @@ export default function Footer() {
 
           <div>
 
-            <Image
-              src="/images/logo/skm-logo.png"
-              alt="SKM Laws"
-              width={170}
-              height={60}
-            />
-
+<Image
+  src="/images/logo/skm-logo.png"
+  alt="SKM Laws"
+  width={180}
+  height={60}
+  className="w-[180px] h-auto object-contain"
+/>
             <p className="mt-6 leading-8 text-gray-400">
 
               Professional Legal,

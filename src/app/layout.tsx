@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import {
-  Inter,
-  Playfair_Display,
-} from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
+
 import "./globals.css";
+
 import AnnouncementBar from "@/components/layout/AnnouncementBar";
+import { siteConfig } from "@/config/site";
+
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -16,77 +17,61 @@ const playfair = Playfair_Display({
   variable: "--font-heading",
   weight: ["600", "700", "800"],
 });
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.skmlaws.com"),
+  metadataBase: new URL(siteConfig.url),
 
   title: {
-    default: "SKM Laws & Associates | Advocate | Income Tax | GST | Legal Services",
-    template: "%s | SKM Laws & Associates",
+    default: `${siteConfig.name} | Advocate | Income Tax | GST | Legal Services`,
+    template: `%s | ${siteConfig.name}`,
   },
 
-  description:
-    "SKM Laws & Associates provides professional legal, Income Tax, GST, litigation, appeals and business advisory services across India.",
+  description: siteConfig.description,
 
-  keywords: [
-    "SKM Laws",
-    "Advocate Sachin Kumar Mishra",
-    "Income Tax Consultant",
-    "GST Consultant",
-    "GST Registration",
-    "GST Return Filing",
-    "Income Tax Return",
-    "ITR Filing",
-    "Tax Planning",
-    "Business Registration",
-    "GST Appeal",
-    "Income Tax Appeal",
-    "Tax Litigation",
-    "Legal Services",
-    "Sitapur Advocate",
-    "Misrikh Advocate",
-    "Uttar Pradesh Advocate",
-  ],
+  keywords: [...siteConfig.keywords],
 
   authors: [
     {
-      name: "Advocate Sachin Kumar Mishra",
+      name: siteConfig.author,
     },
   ],
 
-  creator: "SKM Laws & Associates",
+  creator: siteConfig.author,
 
-  publisher: "SKM Laws & Associates",
+  publisher: siteConfig.name,
 
-  applicationName: "SKM Laws",
+  applicationName: siteConfig.shortName,
 
   category: "Legal Services",
 
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
 
   openGraph: {
-    title:
-      "SKM Laws & Associates | Legal, GST & Income Tax Experts",
+    title: siteConfig.name,
 
-    description:
-      "Professional legal, GST and Income Tax advisory services for individuals, businesses and startups.",
+    description: siteConfig.description,
 
-    url: "https://www.skmlaws.com",
+    url: siteConfig.url,
 
-    siteName: "SKM Laws & Associates",
+    siteName: siteConfig.name,
 
-    locale: "en_IN",
+    locale: siteConfig.locale,
 
     type: "website",
 
     images: [
       {
-        url: "/skm-logo.png",
+        url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: "SKM Laws & Associates",
+        alt: siteConfig.name,
       },
     ],
   },
@@ -94,19 +79,21 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    title:
-      "SKM Laws & Associates",
+    title: siteConfig.name,
 
-    description:
-      "Professional Legal, GST & Income Tax Advisory.",
+    description: siteConfig.description,
 
-    images: ["/skm-logo.png"],
+    images: [siteConfig.ogImage],
+  },
+
+  alternates: {
+    canonical: siteConfig.url,
   },
 
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    icon: siteConfig.favicon,
+    shortcut: siteConfig.favicon,
+    apple: siteConfig.favicon,
   },
 };
 
@@ -117,15 +104,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-
       <body className={`${inter.className} ${playfair.variable}`}>
-
         <AnnouncementBar />
-        
+
         {children}
-
       </body>
-
     </html>
   );
 }

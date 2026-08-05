@@ -1,26 +1,89 @@
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Button from "@/components/ui/Button";
 
 import ContactHighlights from "./ContactHighlights";
-import ContactButtons from "./ContactButtons";
+
+import { siteConfig } from "@/config/site";
 
 export default function ContactCTA() {
   return (
-    <section className="relative overflow-hidden bg-[#081321] py-28 text-white">
+    <section
+      className="
+        relative
+        overflow-hidden
+        bg-[var(--background)]
+        py-32
+        text-white
+      "
+    >
+      {/* ==========================================================
+         Background Glow
+      ========================================================== */}
 
-      {/* Background Glow */}
+      <div
+        className="
+          absolute
+          left-0
+          top-0
+          h-[450px]
+          w-[450px]
+          rounded-full
+          bg-[var(--color-primary)]
+          opacity-[0.06]
+          blur-[190px]
+        "
+      />
 
-      <div className="absolute left-0 top-0 h-[420px] w-[420px] rounded-full bg-yellow-500/10 blur-[170px]" />
+      <div
+        className="
+          absolute
+          right-0
+          bottom-0
+          h-[520px]
+          w-[520px]
+          rounded-full
+          bg-[var(--color-primary)]
+          opacity-[0.04]
+          blur-[220px]
+        "
+      />
 
-      <div className="absolute right-0 bottom-0 h-[460px] w-[460px] rounded-full bg-yellow-500/5 blur-[190px]" />
+      {/* Decorative Circle */}
 
-      {/* Decorative Ring */}
-
-      <div className="absolute left-1/2 top-1/2 h-[680px] w-[680px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-yellow-500/5" />
+      <div
+        className="
+          absolute
+          left-1/2
+          top-1/2
+          h-[720px]
+          w-[720px]
+          -translate-x-1/2
+          -translate-y-1/2
+          rounded-full
+          border
+          border-[var(--border-secondary)]
+        "
+      />
 
       <Container>
 
-        <div className="relative z-10 mx-auto max-w-4xl text-center">
+        <div
+          className="
+            relative
+            z-10
+            mx-auto
+            max-w-5xl
+            rounded-[36px]
+            border
+            border-[var(--border-primary)]
+            bg-[rgba(11,22,37,.72)]
+            p-12
+            shadow-[var(--shadow-luxury)]
+            backdrop-blur-xl
+            lg:p-16
+          "
+        >
 
           <SectionHeading
             badge="Free Initial Consultation"
@@ -31,7 +94,40 @@ export default function ContactCTA() {
 
           <ContactHighlights />
 
-          <ContactButtons />
+          {/* ==========================================================
+             CTA Buttons
+          ========================================================== */}
+
+          <div
+            className="
+              mt-14
+              flex
+              flex-col
+              items-center
+              justify-center
+              gap-5
+              sm:flex-row
+            "
+          >
+
+            <Button
+              href={`https://wa.me/${siteConfig.whatsapp.replace(/\D/g, "")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              size="lg"
+            >
+              Chat on WhatsApp
+            </Button>
+
+            <Button
+              href="/contact"
+              variant="outline"
+              size="lg"
+            >
+              Book Consultation
+            </Button>
+
+          </div>
 
         </div>
 

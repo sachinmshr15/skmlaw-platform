@@ -1,85 +1,125 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock3,
+  ExternalLink,
+} from "lucide-react";
+
 import Container from "@/components/ui/Container";
-import { contactConfig } from "@/config/contact";
+import Button from "@/components/ui/Button";
+import SocialLinks from "@/components/shared/SocialLinks";
+
 import { siteConfig } from "@/config/site";
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="border-t border-yellow-500/10 bg-[#050d18] text-white">
+    <footer className="relative overflow-hidden border-t border-[var(--border-secondary)] bg-[var(--surface-1)] text-white">
+
+      {/* Background Glow */}
+
+      <div className="absolute -left-44 top-0 h-[420px] w-[420px] rounded-full bg-[var(--color-primary)] opacity-[0.05] blur-[220px]" />
+
+      <div className="absolute -right-44 bottom-0 h-[420px] w-[420px] rounded-full bg-[var(--color-primary)] opacity-[0.04] blur-[220px]" />
 
       <Container>
 
-        <div className="grid gap-14 py-20 lg:grid-cols-4">
+        {/* =======================================================
+            TOP
+        ======================================================= */}
 
-          {/* Brand */}
+        <div className="relative grid gap-14 py-24 lg:grid-cols-[1.25fr_1fr_1fr_1.15fr]">
+
+          {/* ===================================================
+              BRAND
+          =================================================== */}
 
           <div>
 
-            <Image
-              src="/images/logo/skm-logo.png"
-              alt={siteConfig.name}
-              width={180}
-              height={60}
-              className="h-auto w-[180px] object-contain"
-            />
+           <Image
+  src={siteConfig.footerLogo}
+  alt={siteConfig.name}
+  width={180}
+  height={180}
+  className="
+    h-auto
+    w-[150px]
+    object-contain
+  "
+/>
 
-            <p className="mt-6 leading-8 text-gray-400">
-
+            <p className="mt-8 max-w-sm leading-8 text-gray-400">
               {siteConfig.description}
-
             </p>
+
+            <div className="mt-8">
+              <SocialLinks />
+            </div>
 
           </div>
 
-          {/* Quick Links */}
+          {/* ===================================================
+              QUICK LINKS
+          =================================================== */}
 
           <div>
 
-            <h3 className="mb-6 text-xl font-semibold text-yellow-400">
-
+            <h3 className="mb-7 font-heading text-2xl font-semibold text-[var(--color-primary)]">
               Quick Links
-
             </h3>
 
-            <ul className="space-y-3">
+            <ul className="space-y-4">
 
-              <li><Link href="/">Home</Link></li>
+              {[
+                ["Home", "/"],
+                ["About", "/about"],
+                ["Services", "/services"],
+                ["Knowledge Centre", "/knowledge"],
+                ["Free Tools", "/tools"],
+                ["Contact", "/contact"],
+              ].map(([label, href]) => (
 
-              <li><Link href="/about">About</Link></li>
+                <li key={href}>
 
-              <li><Link href="/services">Services</Link></li>
+                  <Link
+                    href={href}
+                    className="text-gray-300 transition hover:pl-2 hover:text-[var(--color-primary)]"
+                  >
+                    {label}
+                  </Link>
 
-              <li><Link href="/knowledge">Knowledge</Link></li>
+                </li>
 
-              <li><Link href="/tools">Tools</Link></li>
-
-              <li><Link href="/contact">Contact</Link></li>
+              ))}
 
             </ul>
 
           </div>
 
-          {/* Practice Areas */}
+          {/* ===================================================
+              PRACTICE AREAS
+          =================================================== */}
 
           <div>
 
-            <h3 className="mb-6 text-xl font-semibold text-yellow-400">
-
+            <h3 className="mb-7 font-heading text-2xl font-semibold text-[var(--color-primary)]">
               Practice Areas
-
             </h3>
 
-            <ul className="space-y-3">
+            <ul className="space-y-4 text-gray-300">
 
-              <li>Income Tax</li>
+              <li>Income Tax Advisory</li>
 
               <li>GST Advisory</li>
 
-              <li>Tax Appeals</li>
+              <li>Income Tax Appeals</li>
 
-              <li>Business Advisory</li>
+              <li>GST Appeals</li>
 
               <li>Tax Planning</li>
 
@@ -89,67 +129,151 @@ export default function Footer() {
 
           </div>
 
-          {/* Contact */}
+          {/* ===================================================
+              CONTACT
+          =================================================== */}
 
           <div>
 
-            <h3 className="mb-6 text-xl font-semibold text-yellow-400">
-
+            <h3 className="mb-7 font-heading text-2xl font-semibold text-[var(--color-primary)]">
               Contact
-
             </h3>
 
-            <p className="mb-3">
+            <div className="space-y-6">
 
-              📞 {contactConfig.phoneDisplay}
+              <a
+                href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
+                className="flex items-start gap-3 text-gray-300 transition hover:text-[var(--color-primary)]"
+              >
 
-            </p>
+                <Phone
+                  size={18}
+                  className="mt-1 text-[var(--color-primary)]"
+                />
 
-            <p className="mb-3">
+                <span>{siteConfig.phone}</span>
 
-              ✉ {contactConfig.email}
+              </a>
 
-            </p>
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="flex items-start gap-3 text-gray-300 transition hover:text-[var(--color-primary)]"
+              >
 
-            <p>
+                <Mail
+                  size={18}
+                  className="mt-1 text-[var(--color-primary)]"
+                />
 
-              📍 {contactConfig.office.city}, {contactConfig.office.district},{" "}
-              {contactConfig.office.state}
+                <span>{siteConfig.email}</span>
 
-            </p>
+              </a>
+
+              <a
+                href={siteConfig.maps}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 text-gray-300 transition hover:text-[var(--color-primary)]"
+              >
+
+                <MapPin
+                  size={18}
+                  className="mt-1 text-[var(--color-primary)]"
+                />
+
+                <span>{siteConfig.address}</span>
+
+              </a>
+
+            </div>
+
+            {/* Office Hours */}
+
+            <div className="mt-10 rounded-2xl border border-[var(--border-secondary)] bg-[var(--surface-3)] p-6">
+
+              <div className="flex items-center gap-3">
+
+                <Clock3
+                  size={18}
+                  className="text-[var(--color-primary)]"
+                />
+
+                <span className="font-medium text-white">
+                  Office Hours
+                </span>
+
+              </div>
+
+              <p className="mt-4 text-sm text-gray-400">
+                Monday – Saturday
+              </p>
+
+              <p className="text-white">
+                10:00 AM – 7:00 PM
+              </p>
+
+            </div>
+
+            <div className="mt-8">
+
+              <Button
+                href={siteConfig.maps}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="outline"
+                className="w-full"
+              >
+
+                Open Google Maps
+
+                <ExternalLink
+                  size={18}
+                  className="ml-2"
+                />
+
+              </Button>
+
+            </div>
 
           </div>
 
         </div>
 
-        <div className="border-t border-yellow-500/10 py-8">
+        {/* =======================================================
+            BOTTOM
+        ======================================================= */}
 
-          <div className="flex flex-col items-center justify-between gap-4 text-center text-sm text-gray-500 lg:flex-row">
+        <div className="border-t border-[var(--border-secondary)] py-8">
 
-            <p>
+          <div className="flex flex-col items-center justify-between gap-6 lg:flex-row">
 
-              © 2026 {siteConfig.name}. All Rights Reserved.
+            <p className="text-center text-sm text-gray-500">
+
+              © {year} {siteConfig.name}. All Rights Reserved.
 
             </p>
 
-            <div className="flex gap-6">
+            <div className="flex flex-wrap justify-center gap-8 text-sm">
 
-              <Link href="/privacy">
-
-                Privacy
-
+              <Link
+                href="/privacy"
+                className="text-gray-500 transition hover:text-[var(--color-primary)]"
+              >
+                Privacy Policy
               </Link>
 
-              <Link href="/terms">
-
-                Terms
-
+              <Link
+                href="/terms"
+                className="text-gray-500 transition hover:text-[var(--color-primary)]"
+              >
+                Terms & Conditions
               </Link>
 
-              <Link href="/disclaimer">
-
+              <Link
+                href="/disclaimer"
+                className="text-gray-500 transition hover:text-[var(--color-primary)]"
+              >
                 Disclaimer
-
               </Link>
 
             </div>

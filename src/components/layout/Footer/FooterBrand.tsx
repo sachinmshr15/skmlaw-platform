@@ -1,15 +1,11 @@
 import Image from "next/image";
 
-import FooterSocial from "./FooterSocial";
-
 import { siteConfig } from "@/config/site";
 import { footerConfig } from "@/config/footer";
 
 export default function FooterBrand() {
   return (
     <div className="max-w-sm">
-
-      {/* Logo */}
 
       <Image
         src={siteConfig.footerLogo}
@@ -27,8 +23,6 @@ export default function FooterBrand() {
         "
       />
 
-      {/* Brand */}
-
       <h3
         className="
           mt-8
@@ -45,15 +39,13 @@ export default function FooterBrand() {
         className="
           mt-2
           uppercase
-          tracking-[0.25em]
+          tracking-[0.28em]
           text-xs
           text-yellow-400
         "
       >
         Laws And Associates
       </p>
-
-      {/* Description */}
 
       <p
         className="
@@ -64,8 +56,6 @@ export default function FooterBrand() {
       >
         {footerConfig.brand.description}
       </p>
-
-      {/* Trust Card */}
 
       <div
         className="
@@ -99,10 +89,6 @@ export default function FooterBrand() {
           {footerConfig.brand.trustDescription}
         </p>
       </div>
-
-      {/* Social */}
-
-      <FooterSocial />
 
     </div>
   );

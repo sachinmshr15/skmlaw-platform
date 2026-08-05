@@ -8,11 +8,16 @@ import {
   MessageCircle,
 } from "lucide-react";
 
+import FooterSocial from "./FooterSocial";
+
 import { siteConfig } from "@/config/site";
+import { footerConfig } from "@/config/footer";
 
 export default function FooterContact() {
   return (
     <div>
+
+      {/* Heading */}
 
       <h3
         className="
@@ -25,25 +30,22 @@ export default function FooterContact() {
         Contact
       </h3>
 
+      {/* Contact Items */}
+
       <div className="mt-8 space-y-6">
 
         {/* Phone */}
 
         <Link
           href={`tel:${siteConfig.phone}`}
-          className="
-            group
-            flex
-            items-start
-            gap-4
-          "
+          className="group flex items-start gap-4"
         >
-
           <div
             className="
               flex
               h-11
               w-11
+              shrink-0
               items-center
               justify-center
               rounded-xl
@@ -56,26 +58,20 @@ export default function FooterContact() {
               group-hover:bg-yellow-500/10
             "
           >
-
             <Phone
               size={18}
               className="text-yellow-400"
             />
-
           </div>
 
           <div>
 
             <p className="text-sm text-gray-500">
-
               Call Us
-
             </p>
 
             <p className="text-gray-300">
-
               {siteConfig.phone}
-
             </p>
 
           </div>
@@ -86,19 +82,14 @@ export default function FooterContact() {
 
         <Link
           href={`mailto:${siteConfig.email}`}
-          className="
-            group
-            flex
-            items-start
-            gap-4
-          "
+          className="group flex items-start gap-4"
         >
-
           <div
             className="
               flex
               h-11
               w-11
+              shrink-0
               items-center
               justify-center
               rounded-xl
@@ -111,50 +102,40 @@ export default function FooterContact() {
               group-hover:bg-yellow-500/10
             "
           >
-
             <Mail
               size={18}
               className="text-yellow-400"
             />
-
           </div>
 
           <div>
 
             <p className="text-sm text-gray-500">
-
               Email
-
             </p>
 
-            <p className="text-gray-300 break-all">
-
+            <p className="break-all text-gray-300">
               {siteConfig.email}
-
             </p>
 
           </div>
 
         </Link>
 
-        {/* Address */}
+        {/* Office */}
 
         <Link
-          href={siteConfig.map}
+          href={siteConfig.maps}
           target="_blank"
-          className="
-            group
-            flex
-            items-start
-            gap-4
-          "
+          rel="noopener noreferrer"
+          className="group flex items-start gap-4"
         >
-
           <div
             className="
               flex
               h-11
               w-11
+              shrink-0
               items-center
               justify-center
               rounded-xl
@@ -167,26 +148,20 @@ export default function FooterContact() {
               group-hover:bg-yellow-500/10
             "
           >
-
             <MapPin
               size={18}
               className="text-yellow-400"
             />
-
           </div>
 
           <div>
 
             <p className="text-sm text-gray-500">
-
               Office
-
             </p>
 
             <p className="text-gray-300">
-
               {siteConfig.address}
-
             </p>
 
           </div>
@@ -195,19 +170,14 @@ export default function FooterContact() {
 
         {/* Working Hours */}
 
-        <div
-          className="
-            flex
-            items-start
-            gap-4
-          "
-        >
+        <div className="flex items-start gap-4">
 
           <div
             className="
               flex
               h-11
               w-11
+              shrink-0
               items-center
               justify-center
               rounded-xl
@@ -216,32 +186,24 @@ export default function FooterContact() {
               bg-[#081321]
             "
           >
-
             <Clock
               size={18}
               className="text-yellow-400"
             />
-
           </div>
 
           <div>
 
             <p className="text-sm text-gray-500">
-
-              Working Hours
-
+              Working Days
             </p>
 
             <p className="text-gray-300">
-
-              Mon – Sat
-
+              {footerConfig.office.workingDays}
             </p>
 
             <p className="text-gray-400">
-
-              10:00 AM – 7:00 PM
-
+              {footerConfig.office.workingHours}
             </p>
 
           </div>
@@ -255,10 +217,13 @@ export default function FooterContact() {
       <Link
         href={`https://wa.me/${siteConfig.whatsapp.replace(/\D/g, "")}`}
         target="_blank"
+        rel="noopener noreferrer"
         className="
           mt-10
           inline-flex
+          w-full
           items-center
+          justify-center
           gap-3
           rounded-2xl
           bg-gradient-to-r
@@ -272,15 +237,17 @@ export default function FooterContact() {
           shadow-yellow-500/20
           transition-all
           duration-300
-          hover:scale-105
+          hover:scale-[1.02]
         "
       >
-
         <MessageCircle size={20} />
 
         WhatsApp Consultation
-
       </Link>
+
+      {/* Social */}
+
+      <FooterSocial />
 
     </div>
   );

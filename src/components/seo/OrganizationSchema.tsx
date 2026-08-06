@@ -15,7 +15,7 @@ export default function OrganizationSchema() {
 
     telephone: siteConfig.phone,
 
-    logo: `${siteConfig.url}${siteConfig.logo}`,
+    logo: `${siteConfig.url}${siteConfig.footerLogo}`,
 
     image: `${siteConfig.url}${siteConfig.ogImage}`,
 

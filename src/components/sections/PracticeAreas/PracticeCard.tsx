@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
+import { iconMap } from "@/lib/icon-map";
 import type { Service } from "@/types/site";
 
 type PracticeCardProps = {
@@ -9,7 +10,7 @@ type PracticeCardProps = {
 export default function PracticeCard({
   service,
 }: PracticeCardProps) {
-  const Icon = service.icon;
+  const Icon = iconMap[service.icon] ?? FileText;
 
   return (
     <article

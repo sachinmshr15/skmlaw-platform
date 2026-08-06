@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 
 import "./globals.css";
 
+import DisclaimerProvider from "@/components/compliance/DisclaimerProvider";
 import AnnouncementBar from "@/components/layout/AnnouncementBar";
 import { siteConfig } from "@/config/site";
 
@@ -103,10 +104,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} ${playfair.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <body
+        className={`${inter.className} ${playfair.variable} bg-[#081320] text-white antialiased`}
+      >
+        {/* BCI Disclaimer */}
+        <DisclaimerProvider />
+
+        {/* Global Announcement */}
         <AnnouncementBar />
 
+        {/* Website */}
         {children}
       </body>
     </html>

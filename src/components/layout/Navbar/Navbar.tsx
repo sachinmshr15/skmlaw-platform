@@ -26,18 +26,18 @@ export default function Navbar() {
   return (
     <header
       className={clsx(
-        `
-          fixed
-          left-0
-          top-0
-          z-50
-          w-full
-          transition-all
-          duration-500
-        `,
-        scrolled ? "py-3" : "py-6"
-      )}
-    >
+    `
+      fixed
+      inset-x-0
+      z-50
+      transition-all
+      duration-500
+    `,
+    scrolled
+      ? "top-0 py-3"
+      : "top-10 py-6"
+  )}
+>
       <div className="mx-auto max-w-7xl px-5">
 
 <nav
